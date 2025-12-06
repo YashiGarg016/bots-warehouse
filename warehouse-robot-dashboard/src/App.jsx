@@ -49,7 +49,7 @@ function App() {
             <Route path="/task-allocation" element={<TaskAllocation />}/>
             <Route path="/task-queue" element={<TaskQueue />}/>
             <Route path="/analytics" element={<Analytics />}/>
-            <Route path="/map" element={<Map/>}/>
+            {/* <Route path="/map" element={<Map/>}/> */}
             <Route path='*' element={<Navigate to='/' replace />}/>
           </>
         )}

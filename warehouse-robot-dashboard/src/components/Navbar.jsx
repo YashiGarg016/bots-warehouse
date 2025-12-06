@@ -54,17 +54,17 @@ export default function Navbar() {
               isActive ? "bg-white text-teal-500 shadow-sm" : ""
             }`
           }>Analytics</NavLink>
-            <NavLink to="/map" className={({ isActive }) =>
+            {/* <NavLink to="/map" className={({ isActive }) =>
             `${baseLink} ${
               isActive ? "bg-white text-teal-500 shadow-sm" : ""
             }`
-          }>Map</NavLink>
+          }>Map</NavLink> */}
 
           {isAuthenticated && (
               <button
                 onClick={handleLogout} className="ml-4 bg-white text-teal-500 text-sm font-semibold
-                   px-4 py-1 rounded-full transition-all duration-150
-                   hover:scale-105 hover:shadow-md hover:text-black">Sign Out</button>
+                    px-4 py-1 rounded-full transition-all duration-150
+                    hover:scale-105 hover:shadow-md hover:text-black">Sign Out</button>
             )}
             
             
