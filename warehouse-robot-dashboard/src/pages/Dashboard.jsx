@@ -1,69 +1,71 @@
-import { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import {  useDispatch, useSelector } from "react-redux";
-import setQueue from "../store/tasksSlice";
+import { useSelector } from "react-redux";
 
 export default function Dashboard() {
+  const bots = useSelector((state) => state.bots.list);
+  const allocation = useSelector((state) => state.tasks.allocation);
+  const queue = useSelector((state) => state.tasks.queue);
 
-    const bots = useSelector((state) => state.bots.list);
-    const allocation = useSelector((state) => state.tasks.allocation);
-    const queue = useSelector((state) => state.tasks.queue);
-    const dispatch = useDispatch();
+  const totalBots = bots.length;
+  const idleBots = bots.filter((b) => b.status === "Idle").length;
+  const errorBots = bots.filter((b) => b.status === "Error").length;
 
-    const totalBots = bots.length;
-    const idleBots = bots.filter((b) => b.status ==='Idle').length;
-    const errorBots = bots.filter((b) => b.status ==='Error').length;
+  const activeTasks = queue.length;
+  const pendingTasks = allocation.length + queue.length;
 
-    const activeTasks = queue.length;
-    const pendingTasks = allocation.length + queue.length;
+  return (
+    <div className="min-h-screen w-screen bg-slate-50">
+      <Navbar />
+      <main className="px-4 md:px-8 py-6">
+        <h2 className="text-center text-xl font-bold mb-8 tracking-wide">
+          DASHBOARD
+        </h2>
 
+        {/* Hero section with video background + KPIs overlay */}
+        <section className="relative overflow-hidden rounded-2xl shadow-md">
+          {/* Background video */}
+          <div className="h-[550px] w-full">
+            <video
+              src="/robots.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-    return (
-       <div className="min-h-screen w-screen bg-slate-50">
-        <Navbar />
-        <main className="p-6">
-            <h2 className="text-2xl font-semibold mb-4">Dashboard</h2>
-            
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-                <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Total Bots</h3>
-                    <p className="text-2xl font-bold mt-2">{totalBots}</p>
+          {/* Dark overlay + KPIs */}
+          <div className="absolute inset-0 flex items-center justify-center px-4 bg-black/35">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 w-full max-w-5xl">
+              {[
+                { label: "Total Bots", value: totalBots },
+                { label: "Active Tasks", value: activeTasks },
+                { label: "Idle Bots", value: idleBots },
+                { label: "Error Bots", value: errorBots, error: true },
+                { label: "Pending Tasks", value: pendingTasks },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-md"
+                >
+                  <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                    {item.label}
+                  </h3>
+                  <p
+                    className={
+                      "text-2xl font-bold mt-1 " +
+                      (item.error ? "text-red-600" : "text-gray-900")
+                    }
+                  >
+                    {item.value}
+                  </p>
                 </div>
-
-                <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Active Tasks</h3>
-                    <p className="text-2xl font-bold mt-2">{activeTasks}</p>
-                </div>
-
-                <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Idle Bots</h3>
-                    <p className="text-2xl font-bold mt-2">{idleBots}</p>
-                </div>
-
-                <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Bots in Error</h3>
-                    <p className="text-2xl font-bold mt-2 text-red-600">{errorBots}</p>
-                </div>
-
-                <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Pending Tasks</h3>
-                    <p className="text-2xl font-bold mt-2">{pendingTasks}</p>
-                </div>
+              ))}
             </div>
-        </main>
-       </div>
-
-    //testing redux here
-
-    // <div className="min-h-screen bg-slate-50">
-    //   <Navbar />
-    //   <main className="p-6">
-    //     <h2 className="text-2xl font-semibold mb-4">Dashboard Overview</h2>
-    //     <p className="text-gray-800 mb-2">{testValue}</p>
-    //   </main>
-    // </div>
-
-
-    );
-
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
