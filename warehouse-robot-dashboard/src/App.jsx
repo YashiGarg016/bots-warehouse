@@ -39,19 +39,18 @@ function App() {
           <>
             <Route path='/login' element={<Login />}/>
             <Route path='/signup' element={<Signup />}/>
-            <Route path='*' element={<Navigate to='/signup' replace />}/>
+            <Route path='*' element={<Navigate to='/login' replace />}/>
           </>  
         ) : (
           <>
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/login' element={<Login />} />
+            <Route path='/' element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />}/>
             <Route path="/bots" element={<BotStatus />}/>
             <Route path="/task-allocation" element={<TaskAllocation />}/>
             <Route path="/task-queue" element={<TaskQueue />}/>
             <Route path="/analytics" element={<Analytics />}/>
             <Route path="/map" element={<Map/>}/>
+            <Route path='*' element={<Navigate to='/' replace />}/>
           </>
         )}
       </Routes>

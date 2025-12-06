@@ -2,6 +2,7 @@ import { current } from "@reduxjs/toolkit";
 
 export function getMockBots() {
     const statuses = ['Idle', 'Busy', 'Charging', 'Error'];
+    const now = new Date().toISOString();
 
     function randomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -9,6 +10,7 @@ export function getMockBots() {
 
     return Array.from({ length: 10}, (_, i) => {
         const botStatus = statuses[randomInt(0, statuses.length - 1)];
+        
 
         return {
             id: i + 1,
@@ -17,6 +19,7 @@ export function getMockBots() {
             speed: randomInt(1, 5),
             status: botStatus,
             currentTask: botStatus === 'Idle' ? null : `Task ${i + 1}`,
+            lastUpdated: now,
         }
     });
 }

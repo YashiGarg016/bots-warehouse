@@ -38,7 +38,7 @@ export default function TaskAllocation() {
                             className="w-full border rounded px-2 py-1"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Pick items from aisle 3"
+                            placeholder="Some description"
                         />
                     </div>
 
