@@ -59,6 +59,7 @@ bots-warehouse/
 │   └── README.md
 
 
+
 This project follows a modular and easily scalable component architecture.
 
 All UI layouts are organized into page-level components inside the /pages folder, while reusable UI building blocks like the navigation bar are placed inside /components. Global application state (authentication, bots, tasks) is globally managed inside the /store directory using Redux Toolkit, ensuring predictable data flow across pages. Utility functions and mock APIs are grouped under /utils for clean separation of logic.
