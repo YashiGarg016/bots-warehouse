@@ -26,6 +26,7 @@ The frontend will be available at http://localhost:5173.
 
 ## Component Architecture
 
+```plaintext
 bots-warehouse/
 ├── warehouse-robot-dashboard/
 │   ├── node_modules/
@@ -57,6 +58,7 @@ bots-warehouse/
 │   │   └── main.jsx
 │   ├── package.json
 │   └── README.md
+```
 
 
 
