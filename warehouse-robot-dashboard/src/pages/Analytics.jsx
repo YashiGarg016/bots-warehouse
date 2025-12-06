@@ -88,31 +88,31 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
   return (
     <div className="min-h-screen w-screen bg-slate-50">
             <Navbar />
-            <main className="p-6 space-y-6">
-                <h2 className="text-2xl font semibold mb-4">Analytics</h2>
+            <main className="px-4 md:px-8 py-6 space-y-6">
+                <h2 className="text-center text-xl font-bold mb-4 tracking-wide">ANALYTICS</h2>
 
-                <div className='bg-white border rounded p-4 shadow-sm'>
-                  <div className='grid gap-4 grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 mb-6'>
-                    <div>
-                      <h3 className='text-sm font-semibold text-gray-600'>
+                <div className='bg-white rounded-2xl p-5 shadow-md'>
+                  <div className='grid gap-4 grid-cols-1 sm:grid-cols-3'>
+                    <div className='text-center sm:text-left'>
+                      <h3 className='text-xs font-semibold text-gray-500 uppercase tracking-wide'>
                       Total Bots  
                       </h3>
-                      <p className='text-2xl font-bold mt-2'>{totalBots}</p>
+                      <p className='text-2xl font-bold mt-1 text-gray-900'>{totalBots}</p>
                     </div>
                   
 
-                  <div>
-                    <h3 className='text-sm font-semibold text-gray-600'>
+                  <div className='text-center sm:text-left'>
+                    <h3 className='text-xs font-semibold text-gray-500 uppercase tracking-wide'>
                       Tasks Allocated
                     </h3>
-                    <p className='text-2xl font-bold mt-2'>{totalAllocated}</p>
+                    <p className='text-2xl font-bold mt-1 text-gray-900'>{totalAllocated}</p>
                   </div>
 
-                  <div>
-                    <h3 className='text-sm font-semibold text-gray-600'>
+                  <div className="text-center sm:text-left"> 
+                    <h3 className='text-xs font-semibold text-gray-500 uppercase tracking-wide'>
                       Tasks in Queue
                     </h3>
-                    <p className='text-2xl font-bold mt-2'>{totalInQueue}</p>
+                    <p className='text-2xl font-bold mt-1 text-gray-900'>{totalInQueue}</p>
                   </div>
                 </div>
               </div>    
@@ -121,8 +121,8 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
                   <div className='grid gap-4 grid-cols-1 sm:grid-cols-2'>
 
                     {/* donut chart for bot status */}
-                    <div className='bg-white border rounded  p-4 shadow-sm flex flex-col items-center'>
-                      <h3 className='text-sm font-semibold text-gray-600 mb-2'>
+                    <div className='bg-white rounded-2xl  p-4 shadow-md flex flex-col items-center'>
+                      <h3 className='text-sm font-semibold text-gray-700 mb-2'>
                         Bots by Status
                       </h3>
 
@@ -152,8 +152,8 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
                     </div>
 
                     {/* donut chart for task priority */}
-                    <div className='bg-white border rounded  p-4 shadow-sm flex flex-col items-center'>
-                      <h3 className='text-sm font-semibold text-gray-600 mb-2'>
+                    <div className='bg-white rounded-2xl  p-4 shadow-md flex flex-col items-center'>
+                      <h3 className='text-sm font-semibold text-gray-700 mb-2'>
                         Tasks by Priority
                       </h3>
                       <PieChart width={260} height={260}>
@@ -185,7 +185,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
                     </div>
 
                     {/* line chart for queue length over time */}
-                    <div className='bg-white border rounded  p-4 shadow-sm flex flex-col items-center'>
+                    <div className='bg-white rounded-2xl  p-4 shadow-md flex flex-col items-center'>
                       <h3 text-sm font-semibold text-gray-600 mb-2>Queue length over Time</h3>
                       <LineChart width={600} height={220} data={queueHistory}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -198,7 +198,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
                     </div>
 
                     {/* bar chart for allocated vs queued tasks */}
-                    <div className='bg-white border rounded  p-4 shadow-sm flex flex-col items-center'>
+                    <div className='bg-white rounded-2xl  p-4 shadow-md flex flex-col items-center'>
                       <h3 className='text-sm font-semibold text-gray-600 mb-2'>Allocated vs In Queue</h3>
                       <BarChart width={600} height={220} data={allocationVsQueue}>
                         <CartesianGrid strokeDasharray="3 3"/>

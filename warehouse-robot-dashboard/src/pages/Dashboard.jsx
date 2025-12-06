@@ -17,16 +17,6 @@ export default function Dashboard() {
     const activeTasks = queue.length;
     const pendingTasks = allocation.length + queue.length;
 
-    // useEffect(() => {
-    //     if(queue.length === 0) return;
-
-    //     const intervalId = setInterval(() => {
-    //         const newQueue = queue.slice(1);
-    //         dispatch(setQueue(newQueue));
-    //     }, 3000);
-
-    //     return () => clearInterval(intervalId);
-    // }, [queue, dispatch]);
 
     return (
        <div className="min-h-screen w-screen bg-slate-50">
@@ -51,7 +41,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className="bg-white border rounded p-4 shadow-sm">
-                    <h3 className="text-sm font-semibold text-grat-600">Error Bots</h3>
+                    <h3 className="text-sm font-semibold text-grat-600">Bots in Error</h3>
                     <p className="text-2xl font-bold mt-2 text-red-600">{errorBots}</p>
                 </div>
 
