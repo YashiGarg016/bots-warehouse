@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Navbar from './components/Navbar';
@@ -11,11 +11,15 @@ import { useDispatch } from 'react-redux';
 import { use, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { setQueue } from './store/tasksSlice';
+import Signup from './pages/Signup';
+import { Navigate } from 'react-router-dom';
 
 
 function App() {
   const dispatch = useDispatch();
   const queue = useSelector((state) => state.tasks.queue);
+  
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     if(queue.length === 0) return;
@@ -27,22 +31,32 @@ function App() {
 
     return () => clearInterval(intervalId);
   }, [queue, dispatch]);
-  
-  return (
-    <>
-    {/* <Navbar /> */}
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Login />}/>
-      <Route path="/dashboard" element={<Dashboard />}/>
-      <Route path="/bots" element={<BotStatus />}/>
-      <Route path="/task-allocation" element={<TaskAllocation />}/>
-      <Route path="/task-queue" element={<TaskQueue />}/>
-      <Route path="/analytics" element={<Analytics />}/>
-      <Route path="/map" element={<Map/>}/>
 
-    </Routes>
-    </BrowserRouter></>
+  return (
+    <BrowserRouter>
+      <Routes>
+        {!isAuthenticated ? (
+          <>
+            <Route path='/login' element={<Login />}/>
+            <Route path='/signup' element={<Signup />}/>
+            <Route path='*' element={<Navigate to='/signup' replace />}/>
+          </>  
+        ) : (
+          <>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/bots" element={<BotStatus />}/>
+            <Route path="/task-allocation" element={<TaskAllocation />}/>
+            <Route path="/task-queue" element={<TaskQueue />}/>
+            <Route path="/analytics" element={<Analytics />}/>
+            <Route path="/map" element={<Map/>}/>
+          </>
+        )}
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
