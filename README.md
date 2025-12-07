@@ -30,11 +30,12 @@ The frontend will be available at http://localhost:5173.
 
 ## Component Architecture
 
+```plaintext
 bots-warehouse/
 ├── warehouse-robot-dashboard/
 │   ├── node_modules/
 │   ├── public/
-│   │   ├── robots.mp4
+│   │   └── robots.mp4
 │   ├── src/
 │   │   ├── assets/
 │   │   │   └── bg.jpg
@@ -45,7 +46,7 @@ bots-warehouse/
 │   │   │   ├── BotStatus.jsx
 │   │   │   ├── Dashboard.jsx
 │   │   │   ├── Login.jsx
-│   │   │   ├── Map.jsx (for future use)
+│   │   │   ├── Map.jsx
 │   │   │   ├── Signup.jsx
 │   │   │   ├── TaskAllocation.jsx
 │   │   │   └── TaskQueue.jsx
@@ -60,7 +61,10 @@ bots-warehouse/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── package.json
-│   └── README.md 
+│   └── README.md
+```
+
+
 
 This project follows a modular and easily scalable component architecture.
 
