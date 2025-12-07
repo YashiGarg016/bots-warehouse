@@ -1,5 +1,3 @@
-import { current } from "@reduxjs/toolkit";
-
 export function getMockBots() {
     const statuses = ['Idle', 'Busy', 'Charging', 'Error'];
     const now = new Date().toISOString();

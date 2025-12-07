@@ -4,10 +4,14 @@ A web application for monitoring warehouse bots, allocating tasks and visualisin
 
 ## How to run
 
-### 1. Install dependencies
+### 1. Clone the repository
+      git clone https://github.com/YashiGarg016/bots-warehouse.git
+      cd bots-warehouse
+
+### 2. Install dependencies
       npm install
 
-### 2. Run the app
+### 3. Run the app
       npm run dev     
 
 The frontend will be available at http://localhost:5173.

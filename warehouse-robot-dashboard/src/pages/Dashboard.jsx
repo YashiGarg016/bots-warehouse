@@ -21,9 +21,9 @@ export default function Dashboard() {
           DASHBOARD
         </h2>
 
-        {/* Hero section with video background + KPIs overlay */}
+        {/*video background + KPIs overlay */}
         <section className="relative overflow-hidden rounded-2xl shadow-md">
-          {/* Background video */}
+          
           <div className="h-[550px] w-full">
             <video
               src="/robots.mp4"
@@ -36,7 +36,7 @@ export default function Dashboard() {
           </div>
 
           {/* Dark overlay + KPIs */}
-          <div className="absolute inset-0 flex items-center justify-center px-4 bg-black/35">
+          <div className="absolute inset-0 flex items-center justify-center px-4 bg-black/34">
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 w-full max-w-5xl">
               {[
                 { label: "Total Bots", value: totalBots },

@@ -7,7 +7,7 @@ function Map() {
             <Navbar />
             <main className="p-6">
                 <h2 className="text-2xl font semibold mb-4">Map</h2>
-                <p>Pretend u can see map here hehe.</p>
+                <p>Pretend u can see map here.</p>
             </main>
         </div>
   )
