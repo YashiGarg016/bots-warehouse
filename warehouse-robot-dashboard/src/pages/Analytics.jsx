@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar'
-import {PieChart, Pie, Cell, Tooltip, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid,  BarChart,
-  Bar } from "recharts";
+import {PieChart, Pie, Cell, Tooltip, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid,  BarChart, Bar } from "recharts";
 import { useSelector } from 'react-redux';
 
 
